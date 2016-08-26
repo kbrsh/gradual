@@ -1,0 +1,4 @@
+Cyan Cornflower Blue: #2F97C1
+Battery Charged Blue: #1CCAD8
+Bright Turquoise: #15E6CD
+Guppie Green: #0CF574
