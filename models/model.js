@@ -15,7 +15,7 @@ var sequelize = new Sequelize('database', 'admin', 'pass', {
 
 
 var USER = sequelize.define('USER', {
-    username: { type: Sequelize.STRING(), unique: true, primaryKey: true },
+    username: { type: Sequelize.STRING() },
     password: Sequelize.STRING(),
     todos: Sequelize.STRING()
 });

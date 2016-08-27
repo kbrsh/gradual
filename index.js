@@ -13,7 +13,11 @@ app.use(express.static(__dirname + '/assets'));
 
 app.get("/", function(req, res) {
   res.set("Content-Type", "text/html");
-  res.end(renderindex.render(""));
+  if(req.session.user) {
+    res.send(renderIndex.render(req.session.user))
+  } else {
+    res.send(renderIndex.render(""))
+  }
 });
 
 app.get("/login", function(req, res) {
@@ -23,7 +27,10 @@ app.get("/login", function(req, res) {
 app.post("/loginreq", function(req, res) {
   model.getUser(req.body.username, req.body.password).then(function(user) {
     if(user) {
-
+      req.session.regenerate(function () {
+        req.session.user = user;
+        res.redirect('/');
+      });
     } else {
       res.redirect("/");
     }
