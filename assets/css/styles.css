@@ -102,8 +102,8 @@ p {
 }
 
 .button_container.active .top {
-  -webkit-transform: translateY(10px) translateX(0) rotate(45deg);
-  transform: translateY(10px) translateX(0) rotate(45deg);
+  -webkit-transform: translateY(7px) translateX(0) rotate(45deg);
+  transform: translateY(7px) translateX(0) rotate(45deg);
   background: white;
 }
 
@@ -112,8 +112,9 @@ p {
 }
 
 .button_container.active .bottom {
-  -webkit-transform: translateY(-10px) translateX(0) rotate(-45deg);
-  transform: translateY(-10px) translateX(0) rotate(-45deg);
+  top: 20px;
+  -webkit-transform: translateY(-14px) translateX(0) rotate(-45deg);
+  transform: translateY(-14px) translateX(0) rotate(-45deg);
   background: white;
 }
 
