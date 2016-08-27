@@ -8,6 +8,6 @@
     </defs>
     <g id="Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(1235.000000, 168.000000)">
         <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="500" height="500"></rect>
-        <polyline id="Path-2" stroke="#F5F5F5" transform="translate(249.714411, 250.183743) scale(1, -1) rotate(1.000000) translate(-249.714411, -250.183743) " points="136.4002 250.183742 200.591606 331.40225 363.028621 168.965236"></polyline>
+        <polyline id="Path-2" stroke="#F5F5F5" stroke-width="3" transform="translate(249.714411, 250.183743) scale(1, -1) rotate(1.000000) translate(-249.714411, -250.183743) " points="136.4002 250.183742 200.591606 331.40225 363.028621 168.965236"></polyline>
     </g>
 </svg>
