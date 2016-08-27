@@ -15,22 +15,45 @@ var sequelize = new Sequelize('database', 'admin', 'pass', {
 
 
 var USER = sequelize.define('USER', {
-    username: { type: Sequelize.STRING() },
+    username: { type: Sequelize.STRING(), unique: true, primaryKey: true },
     password: Sequelize.STRING(),
     todos: Sequelize.STRING()
 });
+
+function randomStr() {
+    var tempStr = Math.random().toString(36).slice(-7);
+    if(tempStr.length !== 7) {
+        tempStr = Math.random().toString(36).slice(-7);
+    }
+    return tempStr;
+}
+
+/* generate UNIQUE id */
+
+function gen() {
+    var id = randomStr();
+    return USER.findById(id).then(result => result ? gen() : id);
+}
+
 
 module.exports.getUser = function(id) {
     return USER.findById(id);
 }
 
-module.exports.addUser = function(username, password) {
-  return USER.create({
-      username: username,
-      password: password,
-      todos: ""
-  });
-}
+// module.exports.addUser = function(username, password) {
+//   return USER.create({
+//       username: username,
+//       password: password,
+//       todos: ""
+//   });
+// }
+
+module.exports.addUser = (username, password) => gen().then(id => USER.create({
+    id: id,
+    username: username,
+    password: password,
+    todos: ""
+}));
 
 module.exports.addUser("kbr", "1234")
 

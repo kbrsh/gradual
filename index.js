@@ -5,6 +5,7 @@ var bodyParser = require("body-parser");
 var renderIndex = require("./src/renderindex.js");
 var model = require("./models/model.js");
 var LocalStrategy = require("passport-local");
+var passport = require("passport");
 
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -33,11 +34,20 @@ passport.use(new LocalStrategy(
   }
 ));
 
+passport.serializeUser(function(user, cb) {
+  cb(null, user.username);
+});
+
+passport.deserializeUser(function(id, cb) {
+  model.getUser(id).then(function(user) {
+    cb(null, user);
+  });
+});
+
 app.get("/", function(req, res, next) {
   res.set("Content-Type", "text/html");
-  console.log(req.session);
-  if(req.session.user) {
-    res.send(renderIndex.render(req.session.user.username))
+  if(req.user) {
+    res.send(renderIndex.render(req.user.username))
   } else {
     res.send(renderIndex.render(""))
   }
@@ -47,14 +57,15 @@ app.get("/login", function(req, res) {
   res.sendFile(__dirname + "/views/login/login.html");
 });
 
-app.post("/login", function(req, res) {
-  model.getUser(req.body.username, req.body.password).then(function(user) {
-    if(user) {
-
-    } else {
-      res.redirect("/");
-    }
-  });
+app.post("/login", passport.authenticate('local', { failureRedirect: '/login' }), function(req, res) {
+  // model.getUser(req.body.username, req.body.password).then(function(user) {
+  //   if(user) {
+  //
+  //   } else {
+  //     res.redirect("/");
+  //   }
+  // });
+  res.redirect("/");
 });
 
 app.listen(process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000, process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1", function (req, res) {
