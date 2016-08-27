@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/KingPixil/gradual#readme",
   "dependencies": {
+    "express": "^4.14.0",
     "hexu": "^1.0.0",
     "sequelize": "^3.24.1",
     "sqlite3": "^3.1.4"
