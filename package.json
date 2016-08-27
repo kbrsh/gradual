@@ -19,10 +19,10 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
-    "everyauth": "^0.4.9",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
     "hexu": "^1.0.0",
+    "passport": "^0.3.2",
     "sequelize": "^3.24.1",
     "sqlite3": "^3.1.4"
   },

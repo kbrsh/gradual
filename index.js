@@ -2,18 +2,17 @@ var express = require("express");
 var app = express();
 var util = require('./src/util.js');
 var bodyParser = require("body-parser");
-var session = require("express-session");
 var renderIndex = require("./src/renderindex.js");
 var model = require("./models/model.js");
-var everyauth = require('everyauth');
-var cookieParser = require("cookieParser");
 
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/assets'));
-app.use(cookieParser('mr ripley'))
-app.use(session())
-app.use(everyauth.middleware(app));
+app.use(require('cookie-parser')());
+app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get("/", function(req, res, next) {
   res.set("Content-Type", "text/html");
