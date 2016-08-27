@@ -19,4 +19,12 @@ var user = sequelize.define('USER', {
     todos: Sequelize.STRING()
 });
 
+module.exports.addUser = function(username, password) {
+  user.create({
+      username: username,
+      password: password,
+      todos: ""
+  })
+}
+
 sequelize.sync();
