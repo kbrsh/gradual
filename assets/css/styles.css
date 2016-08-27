@@ -1,0 +1,15 @@
+h1 {
+  font-family: "Gilroy";
+}
+
+p {
+  font-family: "Lato";
+}
+
+#hero h1 {
+  font-size: 10rem;
+}
+
+#hero p {
+  font-size: 5rem;
+}
