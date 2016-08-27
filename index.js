@@ -2,8 +2,8 @@ var express = require("express");
 var app = express();
 var util = require('./src/util.js');
 var bodyParser = require("body-parser");
-var renderindex = require("../src/renderindex.js");
-var model = require("../models/model.js");
+var renderindex = require("./src/renderindex.js");
+var model = require("./models/model.js");
 
 
 
