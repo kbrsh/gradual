@@ -16,6 +16,14 @@ app.get("/", function(req, res) {
   res.end(renderindex.render(""));
 });
 
+app.get("/login", function(req, res) {
+  res.sendFile(__dirname + "/views/login/login.html");
+});
+
+app.post("/loginreq", function(req, res) {
+  model.getUser(req.body.)
+});
+
 app.listen(process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000, process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1", function (req, res) {
     util.log("[GRADUAL] Listening", "green");
 });
