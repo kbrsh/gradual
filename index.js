@@ -10,13 +10,15 @@ var model = require("./models/model.js");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/assets'));
-app.use(session({secret:'secret'}));
+app.use(session({secret:'secret', saveUninitialized: false, resave: true}));
+app.use(express.cookieParser("secret"));
 
 
 app.get("/", function(req, res) {
   res.set("Content-Type", "text/html");
+  console.log(req.session)
   if(req.session.user) {
-    res.send(renderIndex.render(req.session.user))
+    res.send(renderIndex.render(req.session.user.username))
   } else {
     res.send(renderIndex.render(""))
   }
@@ -26,7 +28,7 @@ app.get("/login", function(req, res) {
   res.sendFile(__dirname + "/views/login/login.html");
 });
 
-app.post("/loginreq", function(req, res) {
+app.post("/login", function(req, res) {
   model.getUser(req.body.username, req.body.password).then(function(user) {
     if(user) {
       req.session.regenerate(function () {
