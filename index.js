@@ -2,14 +2,15 @@ var express = require("express");
 var app = express();
 var util = require('./src/util.js');
 var bodyParser = require("body-parser");
-var renderindex = require("./src/renderindex.js");
+var session = require("express-session");
+var renderIndex = require("./src/renderindex.js");
 var model = require("./models/model.js");
 
 
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/assets'));
-app.use(express.session());
+app.use(session({secret:'secret'}));
 
 
 app.get("/", function(req, res) {
