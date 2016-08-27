@@ -3,3 +3,9 @@
   font-style: normal;
   src: local('Gilroy-ExtraBold'), url(./Gilroy-ExtraBold.otf) format('opentype');
 }
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  src: local('Lato-Thin'), url(./Lato-Thin.ttf) format('truetype');
+}
