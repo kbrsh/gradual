@@ -9,6 +9,7 @@ var model = require("./models/model.js");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/assets'));
+app.use(express.session());
 
 
 app.get("/", function(req, res) {
