@@ -19,12 +19,24 @@ p {
     background: linear-gradient(to bottom right, #2F97C1, #D215E6); /* Standard syntax */
     height: 100vh;
     width: 100vw;
+    display: table;
 }
 
 #hero h1 {
   font-size: 10rem;
+  text-align: left;
 }
 
 #hero p {
   font-size: 5rem;
+  text-align: left;
+}
+
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.center {
+  text-align: center;
 }
