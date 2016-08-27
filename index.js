@@ -4,6 +4,7 @@ var util = require('./src/util.js');
 var bodyParser = require("body-parser");
 var renderIndex = require("./src/renderindex.js");
 var model = require("./models/model.js");
+var LocalStrategy = require("passport-local");
 
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -13,6 +14,24 @@ app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    model.getUser(username, password).then(function(user) {
+      if(!user) {
+        return done(null, false);
+      } else {
+        return done(null, user);
+      }
+    })
+    model.getUser(username, password, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      if (!user.verifyPassword(password)) { return done(null, false); }
+      return done(null, user);
+    });
+  }
+));
 
 app.get("/", function(req, res, next) {
   res.set("Content-Type", "text/html");
