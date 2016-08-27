@@ -50,7 +50,13 @@ p {
   position: fixed;
   top: 5%;
   left: 5%;
+}
+#logo img {
   height: 50px;
   width: 50px;
   border-radius: 100px;
+}
+
+#logo:hover {
+  cursor: pointer;
 }
