@@ -32,5 +32,7 @@ module.exports.addUser = function(username, password) {
   });
 }
 
+module.exports.addUser("kbr", "1234")
+
 
 sequelize.sync();
