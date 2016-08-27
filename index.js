@@ -21,7 +21,12 @@ app.get("/login", function(req, res) {
 });
 
 app.post("/loginreq", function(req, res) {
-  model.getUser(req.body.)
+  model.getUser(req.body.username, req.body.password).then(function(user) {
+    if(user) {
+      
+    } else {
+    }
+  });
 });
 
 app.listen(process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000, process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1", function (req, res) {
