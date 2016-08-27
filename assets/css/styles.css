@@ -45,3 +45,12 @@ p {
 .center {
   text-align: center;
 }
+
+#logo {
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  height: 50px;
+  width: 50px;
+  border-radius: 100px;
+}
