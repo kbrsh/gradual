@@ -10,23 +10,14 @@ var model = require("./models/model.js");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/assets'));
-var MemoryStore =session.MemoryStore;
-app.use(session({
-        name : 'gradual.sid',
-        secret: "secret",
-        resave: true,
-        store: new MemoryStore(),
-        saveUninitialized: true
-}));
 
-
-app.get("/", function(req, res) {
+app.get("/", function(req, res, next) {
   res.set("Content-Type", "text/html");
   console.log(req.session);
   if(req.session.user) {
     res.send(renderIndex.render(req.session.user.username))
   } else {
-    res.send(renderIndex.render())
+    res.send(renderIndex.render(""))
   }
 });
 
@@ -37,10 +28,7 @@ app.get("/login", function(req, res) {
 app.post("/login", function(req, res) {
   model.getUser(req.body.username, req.body.password).then(function(user) {
     if(user) {
-      req.session.regenerate(function () {
-        req.session.user = user;
-        res.redirect('/');
-      });
+
     } else {
       res.redirect("/");
     }
