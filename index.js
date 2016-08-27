@@ -10,17 +10,23 @@ var model = require("./models/model.js");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/assets'));
-app.use(session({secret:'secret', saveUninitialized: false, resave: true}));
-app.use(express.cookieParser("secret"));
+var MemoryStore =session.MemoryStore;
+app.use(session({
+        name : 'gradual.sid',
+        secret: "secret",
+        resave: true,
+        store: new MemoryStore(),
+        saveUninitialized: true
+}));
 
 
 app.get("/", function(req, res) {
   res.set("Content-Type", "text/html");
-  console.log(req.session)
+  console.log(req.session);
   if(req.session.user) {
     res.send(renderIndex.render(req.session.user.username))
   } else {
-    res.send(renderIndex.render(""))
+    res.send(renderIndex.render())
   }
 });
 
