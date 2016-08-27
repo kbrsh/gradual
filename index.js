@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var session = require("express-session");
 var renderIndex = require("./src/renderindex.js");
 var model = require("./models/model.js");
-
+var everyauth = require('everyauth');
 
 
 app.use(bodyParser.urlencoded({extended: true}));
