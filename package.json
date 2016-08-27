@@ -1,0 +1,19 @@
+{
+  "name": "gradual",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Testing...\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KingPixil/gradual.git"
+  },
+  "author": "Kabir Shah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KingPixil/gradual/issues"
+  },
+  "homepage": "https://github.com/KingPixil/gradual#readme"
+}
