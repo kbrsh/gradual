@@ -18,6 +18,7 @@
   "homepage": "https://github.com/KingPixil/gradual#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "everyauth": "^0.4.9",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
     "hexu": "^1.0.0",
