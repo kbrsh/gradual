@@ -49,7 +49,7 @@ app.get("/", function(req, res, next) {
   if(req.user) {
     res.send(renderIndex.render(req.user.username))
   } else {
-    res.send(renderIndex.render(""))
+    res.send(renderIndex.render())
   }
 });
 
