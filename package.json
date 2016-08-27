@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/KingPixil/gradual/issues"
   },
-  "homepage": "https://github.com/KingPixil/gradual#readme"
+  "homepage": "https://github.com/KingPixil/gradual#readme",
+  "dependencies": {
+    "hexu": "^1.0.0"
+  }
 }
