@@ -1,0 +1,10 @@
+
+<svg width="500px" height="500px" viewBox="1235 168 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="101.999998%" y2="100.999999%" id="linearGradient-1">
+            <stop stop-color="#2F97C1" offset="0%"></stop>
+            <stop stop-color="#D215E6" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <rect id="Rectangle" stroke="none" fill="url(#linearGradient-1)" fill-rule="evenodd" x="1235" y="168" width="500" height="500"></rect>
+</svg>
