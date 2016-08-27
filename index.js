@@ -23,8 +23,9 @@ app.get("/login", function(req, res) {
 app.post("/loginreq", function(req, res) {
   model.getUser(req.body.username, req.body.password).then(function(user) {
     if(user) {
-      
+
     } else {
+      res.redirect("/");
     }
   });
 });
