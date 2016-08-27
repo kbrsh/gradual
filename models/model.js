@@ -14,18 +14,19 @@ var sequelize = new Sequelize('database', 'admin', 'pass', {
 });
 
 
-var user = sequelize.define('USER', {
+var USER = sequelize.define('USER', {
     username: { type: Sequelize.STRING(), unique: true, primaryKey: true },
     password: Sequelize.STRING(),
     todos: Sequelize.STRING()
 });
 
 module.exports.addUser = function(username, password) {
-  user.create({
+  return USER.create({
       username: username,
       password: password,
       todos: ""
-  })
+  });
 }
+
 
 sequelize.sync();
