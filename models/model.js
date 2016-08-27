@@ -20,6 +20,10 @@ var USER = sequelize.define('USER', {
     todos: Sequelize.STRING()
 });
 
+module.exports.getUser = function(id) {
+    return USER.findById(id);
+}
+
 module.exports.addUser = function(username, password) {
   return USER.create({
       username: username,
