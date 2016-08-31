@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 var util = require('./src/util.js');
 var bodyParser = require("body-parser");
-var renderIndex = require("./src/renderindex.js");
+var indexController = require("./controllers/indexController.js");
 var model = require("./models/model.js");
 var LocalStrategy = require("passport-local");
 var passport = require("passport");
@@ -47,9 +47,9 @@ passport.deserializeUser(function(id, cb) {
 app.get("/", function(req, res, next) {
   res.set("Content-Type", "text/html");
   if(req.user) {
-    res.send(renderIndex.render(req.user.username))
+    res.send(indexController.render())
   } else {
-    res.send(renderIndex.render())
+    res.send(indexController.render())
   }
 });
 
