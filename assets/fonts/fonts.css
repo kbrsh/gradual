@@ -9,3 +9,11 @@
   font-style: normal;
   src: local('Lato-Thin'), url(./Lato-Thin.ttf) format('truetype');
 }
+
+h1 {
+  font-family: 'Gilroy';
+}
+
+p {
+  font-family: 'Lato';
+}
