@@ -45,14 +45,15 @@ module.exports.getUserByCredentials = function(email, password) {
 }
 
 
-module.exports.addUser = (email, password) => gen().then(id => USER.create({
+module.exports.addUser = (firstName, email, password) => gen().then(id => USER.create({
     id: id,
+    firstName: firstName,
     email: email,
     password: password,
     todos: ""
 }));
 
-module.exports.addUser("kbr@kabir.ml", "1234")
+module.exports.addUser("Kabir", "kbr@kabir.ml", "1234")
 
 
 sequelize.sync();
