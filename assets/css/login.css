@@ -17,4 +17,28 @@ h1 {
 
 .container {
   margin-top: 10rem;
+  width: 30rem;
+}
+
+input[type=text], input[type=email], input[type=password] {
+  border-bottom: 2px solid #ddd;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+  background: transparent;
+  font-family: "Lato";
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #f5f5f5;
+  display: block;
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+  border-bottom: 2px solid #f5f5f5;
 }
