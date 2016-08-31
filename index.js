@@ -26,33 +26,33 @@ app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveU
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    model.getUser(username, password).then(function(user) {
-      if(!user) {
-        return done(null, false);
-      } else {
-        return done(null, user);
-      }
-    })
-    model.getUser(username, password, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) { return done(null, false); }
-      if (!user.verifyPassword(password)) { return done(null, false); }
-      return done(null, user);
-    });
-  }
-));
-
 passport.serializeUser(function(user, cb) {
-  cb(null, user.username);
+  cb(null, user.id);
 });
 
 passport.deserializeUser(function(id, cb) {
   model.getUser(id).then(function(user) {
     cb(null, user);
+  }).catch(function(err) {
+    done(err, null)
   });
 });
+
+passport.use(new LocalStrategy({ usernameField: 'email', passwordField: 'password' },
+  function(email, password, done) {
+    model.getUserByCredentials(email, password).then(function(user) {
+      if(!user) {
+        return done("Incorrect Login Or Password");
+      } else if (password != user.password) {
+          return done("Incorrect login or password");
+      } else {
+        return done(null, user);
+      }
+    });
+  }
+));
+
+
 
 
 // GET "/" and send index file
@@ -60,7 +60,7 @@ passport.deserializeUser(function(id, cb) {
 app.get("/", function(req, res, next) {
   res.set("Content-Type", "text/html");
   if(req.user) {
-    res.send(indexController.render())
+    res.send(req.user.email)
   } else {
     res.send(indexController.render())
   }

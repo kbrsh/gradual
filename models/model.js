@@ -15,7 +15,7 @@ var sequelize = new Sequelize('database', 'admin', 'pass', {
 
 
 var USER = sequelize.define('USER', {
-    username: { type: Sequelize.STRING(), unique: true, primaryKey: true },
+    email: { type: Sequelize.STRING(), unique: true, primaryKey: true },
     password: Sequelize.STRING(),
     todos: Sequelize.STRING()
 });
@@ -40,22 +40,19 @@ module.exports.getUser = function(id) {
     return USER.findById(id);
 }
 
-// module.exports.addUser = function(username, password) {
-//   return USER.create({
-//       username: username,
-//       password: password,
-//       todos: ""
-//   });
-// }
+module.exports.getUserByCredentials = function(email, password) {
+  return USER.find({where: {email:email, password:password}});
+}
 
-module.exports.addUser = (username, password) => gen().then(id => USER.create({
+
+module.exports.addUser = (email, password) => gen().then(id => USER.create({
     id: id,
-    username: username,
+    email: email,
     password: password,
     todos: ""
 }));
 
-module.exports.addUser("kbr", "1234")
+module.exports.addUser("kbr@kabir.ml", "1234")
 
 
 sequelize.sync();
