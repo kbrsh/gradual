@@ -1,0 +1,10 @@
+html {
+  height: 100vh;
+  width: 100vw;
+  background: #E96443; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #E96443, #892BE3); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #E96443, #892BE3); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #E96443, #892BE3); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #E96443, #892BE3); /* Standard syntax */
+  background-repeat: no-repeat;
+}
