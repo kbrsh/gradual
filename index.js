@@ -1,18 +1,28 @@
+// Require external dependencies
 var express = require("express");
 var app = express();
-var util = require('./src/util.js');
 var bodyParser = require("body-parser");
-var indexController = require("./controllers/indexController.js");
-var model = require("./models/model.js");
 var LocalStrategy = require("passport-local");
 var passport = require("passport");
 
+// Require models
+var model = require("./models/model.js");
 
+// Require JS files
+var util = require('./src/util.js');
+
+// Require controllers
+var indexController = require("./controllers/indexController.js");
+
+
+// Set middleware
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/assets'));
 app.use(require('cookie-parser')());
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+
+// Config Passport
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -44,6 +54,9 @@ passport.deserializeUser(function(id, cb) {
   });
 });
 
+
+// GET "/" and send index file
+
 app.get("/", function(req, res, next) {
   res.set("Content-Type", "text/html");
   if(req.user) {
@@ -53,14 +66,20 @@ app.get("/", function(req, res, next) {
   }
 });
 
+// GET "/login" and send login page
+
 app.get("/login", function(req, res) {
   res.sendFile(__dirname + "/views/login/login.html");
 });
 
+
+// POST "/login" and authenticate user, then redirect
 app.post("/login", passport.authenticate('local', { failureRedirect: '/login' }), function(req, res) {
   res.redirect("/");
 });
 
+
+// Listen to port
 app.listen(process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000, process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1", function (req, res) {
     util.log("[GRADUAL] Listening", "green");
 });
