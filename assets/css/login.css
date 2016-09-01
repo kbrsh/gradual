@@ -20,8 +20,13 @@ h1 {
   width: 30rem;
 }
 
+::-webkit-input-placeholder {
+  color: #ADADAD;
+  font-family: "Lato";
+}
+
 input[type=text], input[type=email], input[type=password] {
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #ADADAD;
   border-top: none;
   border-left: none;
   border-right: none;
