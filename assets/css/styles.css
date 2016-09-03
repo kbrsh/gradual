@@ -83,26 +83,14 @@ p {
   margin-right: 3rem;
 }
 
-#loginLink {
+.link {
   transition: all 0.5s ease;
   border-bottom: 2px solid #aaa;
   padding-bottom: 0.3rem;
 }
 
-#loginLink:hover {
+.link:hover {
   border-bottom: 2px solid #f5f5f5;
-}
-
-#signupLink {
-  padding: 2rem 4rem;
-  border: 3px solid #1CCAD8;
-  transition: all 0.5s ease;
-  color: #1CCAD8;
-}
-
-#signupLink:hover {
-  border: 3px solid #f5f5f5;
-  color: #f5f5f5;
 }
 
 @media (max-width: 540px) and (min-width: 400px){
