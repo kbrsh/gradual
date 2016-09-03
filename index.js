@@ -12,8 +12,8 @@ var model = require("./models/model.js");
 var util = require('./src/util.js');
 
 // Require controllers
-var indexController = require("./controllers/indexController.js");
-var appController = require("./conrollers/appConroller.js");
+var indexController = require("./controllers/indexcontroller.js");
+var appController = require("./controllers/appcontroller.js");
 
 
 // Set middleware
