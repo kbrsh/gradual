@@ -39,14 +39,13 @@ p {
 
 .fancy-btn {
   padding: 2rem 4rem;
-  border: 3px solid #f5f5f5;
-  background: transparent;
+  border: 3px solid #15E6CD;
+  background-color: #15E6CD;
   border-radius: 0px;
+  font-family: "Quicksand";
+  font-size: 1.7rem;
 }
 
-.fancy-btn::before {
-  content: "";
-}
 
 
 #logo {
