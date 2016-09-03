@@ -18,7 +18,9 @@ var USER = sequelize.define('USER', {
     email: { type: Sequelize.STRING(), unique: true, primaryKey: true },
     firstName: Sequelize.STRING(),
     password: Sequelize.STRING(),
-    todos: Sequelize.STRING()
+    todos: Sequelize.STRING(),
+    completed: Sequelize.INTEGER(),
+    made: Sequelize.INTEGER()
 });
 
 function randomStr() {
@@ -51,7 +53,9 @@ module.exports.addUser = (firstName, email, password) => gen().then(id => USER.c
     firstName: firstName,
     email: email,
     password: password,
-    todos: ""
+    todos: "",
+    completed: 0,
+    made: 0
 }));
 
 // module.exports.addUser("Kabir", "kbr@kabir.ml", "1234")
