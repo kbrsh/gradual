@@ -13,6 +13,7 @@ var util = require('./src/util.js');
 
 // Require controllers
 var indexController = require("./controllers/indexController.js");
+var appController = require("./conrollers/appConroller.js");
 
 
 // Set middleware
