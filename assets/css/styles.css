@@ -95,10 +95,10 @@ p {
 
 @media (max-width: 540px) and (min-width: 400px){
   h1 {
-    font-size: 5rem !important;
+    font-size: 4.5rem !important;
   }
   p {
-    font-size: 4rem !important;
+    font-size: 3.5rem !important;
   }
 }
 
