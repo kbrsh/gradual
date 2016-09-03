@@ -53,7 +53,7 @@ module.exports.addUser = (firstName, email, password) => gen().then(id => USER.c
     todos: ""
 }));
 
-module.exports.addUser("Kabir", "kbr@kabir.ml", "1234")
+// module.exports.addUser("Kabir", "kbr@kabir.ml", "1234")
 
 
 sequelize.sync();
