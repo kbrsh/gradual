@@ -45,6 +45,7 @@ p {
   font-family: "Quicksand";
   font-size: 1.7rem;
   transition: all 1s ease;
+  margin-left: 0;
 }
 
 .fancy-btn:hover {
