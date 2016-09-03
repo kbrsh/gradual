@@ -37,14 +37,10 @@ p {
   text-align: left;
 }
 
-.cell {
-  display: table-cell;
-  vertical-align: middle;
+.fancy-btn {
+  padding: 2rem 4rem;
 }
 
-.center {
-  text-align: center;
-}
 
 #logo {
   position: fixed;
@@ -115,4 +111,13 @@ p {
   a:hover {
     border-bottom: 2px solid #f5f5f5 !important;
   }
+}
+
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.center {
+  text-align: center;
 }
