@@ -44,6 +44,11 @@ p {
   border-radius: 0px;
   font-family: "Quicksand";
   font-size: 1.7rem;
+  transition: all 1s ease;
+}
+
+.fancy-btn:hover {
+  background: none;
 }
 
 
