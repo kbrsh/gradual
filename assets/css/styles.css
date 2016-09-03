@@ -95,20 +95,10 @@ p {
 
 @media (max-width: 540px) and (min-width: 400px){
   h1 {
-    font-size: 4rem !important;
+    font-size: 5rem !important;
   }
   p {
-    font-size: 3rem !important;
-  }
-  a {
-    font-size: 1.5rem !important;
-    border: none !important;
-    padding: 1rem !important;
-    color: #f5f5f5 !important;
-    border-bottom: 2px solid #aaa !important;
-  }
-  a:hover {
-    border-bottom: 2px solid #f5f5f5 !important;
+    font-size: 4rem !important;
   }
 }
 
